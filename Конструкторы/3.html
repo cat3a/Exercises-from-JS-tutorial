@@ -1,0 +1,22 @@
+<script>
+
+	"use strict";
+	
+	function Accumulator(startingValue) {
+		this.value = startingValue;
+		
+		this.read = function(){this.num =  +prompt('Введите число номер 1', 0);
+			                   this.value = this.value + this.num;
+							   return  this.value;
+		};
+	}
+
+	let accumulator = new Accumulator(1); // начальное значение 1
+
+	accumulator.read(); // прибавит ввод prompt к текущему значению
+	accumulator.read(); // прибавит ввод prompt к текущему значению
+
+	alert(accumulator.value); // выведет сумму этих значений
+	
+	
+</script>

@@ -1,0 +1,16 @@
+<script>
+
+	"use strict";
+	
+	function ucFirst(str){
+		if (!str) return str; //Для пустой строки
+		
+		return str[0].toUpperCase() + str.slice(1);
+    }
+	
+	alert(ucFirst("петя"));
+	alert(ucFirst("Акация"));
+	alert(ucFirst("максимум"));
+	alert(ucFirst(""));
+	
+</script>

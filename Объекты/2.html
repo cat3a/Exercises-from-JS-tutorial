@@ -1,0 +1,19 @@
+<script>
+
+    "use strict";
+	
+// Сама функция проверки на пустоту
+		
+    function isEmpty(obj) {
+		for (let key in obj) {
+			return alert("Это не пустой объект");
+		}
+		return alert("Это пустой объект"); 
+	}
+	
+// Проверка
+	
+	isEmpty(testObj);
+	let testObj= {age: 25};
+	
+</script>

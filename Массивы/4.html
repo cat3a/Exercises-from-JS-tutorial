@@ -1,0 +1,23 @@
+<script>
+
+	"use strict";
+	
+	let array = new Array();
+	let value;
+	let sum = 0;
+	
+    function sumInput() {
+		while(true) {
+		    value = prompt("Введите число", "");
+			if(isNaN(value) || value === null || value === "") break;
+			array.push(value);
+		} 
+		for (let i = 0; i < array.length; i++) {
+			sum += +array[i];
+		}
+	return alert(sum);
+	}
+	
+    sumInput();
+	
+</script>

@@ -1,0 +1,30 @@
+<script>
+
+	"use strict";
+	
+	let styles = ["Джаз", "Блюз"];
+	let middle = 0;
+	
+	alert(styles);
+	
+	styles.push("Рок-н-ролл");
+	alert(styles);
+	
+	if (styles.length % 2 == 0){
+		middle = styles.length/2;
+		styles.splice(middle, 0, "Классика");
+	} else {
+		middle = styles.length/2 - 0.5;
+		styles[middle] = "Классика";
+	}
+	
+	alert(styles);
+	
+	styles.shift(0);
+	alert(styles);
+	
+	styles.unshift("Регги");
+	styles.unshift("Рэп");
+	alert(styles);
+	
+</script>

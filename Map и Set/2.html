@@ -1,0 +1,26 @@
+<script>
+
+	"use strict";
+	let newAr = [];
+	let newArr = [];
+	let map = new Map();
+	
+	function aclean(arr) {
+		for(let elem of arr) {
+			elem.toString();
+			let newAr = elem.split("");
+			newAr.sort();
+			let elemNew = newAr.join("");
+			elemNew = elemNew.toLowerCase();
+		    map.set(elemNew, elem);
+		}
+		
+	     return Array.from(map.values());
+	   
+	}
+
+	let arr = ["nap", "teachers", "cheaters", "PAN", "ear", "era", "hectares"];
+	
+	alert( aclean(arr) );
+
+</script>

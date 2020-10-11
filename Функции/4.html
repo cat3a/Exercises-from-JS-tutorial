@@ -1,0 +1,18 @@
+<script>
+
+    "use strict";
+				
+	function pow(a, b) {
+		return a**b;
+	}
+
+	let a = +prompt("Введит число a", 0);
+	let b = +prompt("Введит число b", 0);
+	
+	if (b < 1) {
+		alert(`Степень ${b} не поддерживается, используйте натуральное число`);
+	} else {
+		alert( pow(a, b) );
+	}
+	
+</script>
