@@ -1,0 +1,19 @@
+<script>
+
+	"use strict";
+
+	let salaries = {
+		"John": 100,
+		"Pete": 300,
+		"Mary": 250
+	};
+	 
+	function topSalary(salaries) {
+		if(Object.entries(salaries).length == 0){return null}
+		let salariesObj = Object.entries(salaries).sort((a, b) => b[1] - a[1]);
+		return salariesObj[0][0];
+	}
+	
+	alert( topSalary(salaries) ); 
+	
+</script>
