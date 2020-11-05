@@ -1,0 +1,23 @@
+<script>
+
+	"use strict";
+	
+	function formatDate(date) {
+		let day = new Date();
+		if(Math.round(day - date) < 1000) {
+			return "прямо сейчас";
+		} else if (Math.round(day - date) < 1000*60) {
+			return Math.round((day - date)/1000) + " сек. назад";
+		} else if (Math.round(day - date) < 1000*60*60) {
+			return Math.round((day - date)/(1000*60)) + " мин. назад";
+		} else {
+			return `${date.getDate()}.${date.getMonth()}.${date.getFullYear()} ${date.getHours()}:${date.getMinutes()}`;
+		}
+	}
+	
+	alert( formatDate(new Date(new Date - 1)) ); // "прямо сейчас"
+	alert( formatDate(new Date(new Date - 30 * 1000)) ); // "30 сек. назад"
+	alert( formatDate(new Date(new Date - 5 * 60 * 1000)) ); // "5 мин. назад"
+	alert( formatDate(new Date(new Date - 86400 * 1000)) );
+	
+</script>

@@ -1,0 +1,67 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<style>
+           .hours {
+			color: red;
+			font-size: 22pt;
+		   }
+		   
+		   .minutes {
+			color: green;
+			font-size: 22pt;
+		   }
+		   
+		   .seconds {
+		    color: blue;
+			font-size: 22pt;
+		   }
+		</style>
+	</head>
+<body>
+
+  <div class ="clock">
+
+  </div>
+
+  <!-- клик по этой кнопке вызовет clockStart() -->
+  <input type="button" onclick="clockStart()" value="Старт">
+
+  <!-- клик по этой кнопке вызовет clockStop() -->
+  <input type="button" onclick="clockStop()" value="Стоп">
+
+  <script>
+
+  let timerId = setInterval(() => clockClock(hoursSpan, minutesSpan, secondsSpan), 100);
+  
+	let clock = document.querySelector('.clock');
+	let hoursSpan = document.createElement('span');
+	hoursSpan.className = 'hours';
+	clock.append(hoursSpan);
+	let separator =  ":";
+	clock.append(separator);
+	let minutesSpan = document.createElement('span');
+	minutesSpan.className = 'minutes';
+	clock.append(minutesSpan);
+	clock.append(separator);
+	let secondsSpan = document.createElement('span');
+	secondsSpan.className = 'seconds';
+	clock.append(secondsSpan);
+  
+  function clockClock(hoursSpan, minutesSpan, secondsSpan) {
+    let hours = new Date().toLocaleTimeString().slice(0,-6);
+    let minutes = new Date().toLocaleTimeString().slice(3,-3);
+    let seconds = new Date().toLocaleTimeString().slice(-2);
+    minutesSpan.textContent =  minutes;
+    hoursSpan.textContent =  hours ;
+    secondsSpan.textContent = seconds;
+  }
+  
+  function clockStart(){timerId = setInterval(() => clockClock(hoursSpan, minutesSpan, secondsSpan), 100)};
+  
+  function clockStop(){clearInterval(timerId)};
+  
+  </script>
+  
+</body>
+</html>

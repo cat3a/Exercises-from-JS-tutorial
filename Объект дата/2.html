@@ -1,0 +1,14 @@
+<script>
+
+	"use strict";
+	
+	let date = new Date(2012, 0, 3);  // 3 января 2012 года
+	let week = ["ВС", "ПН", "ВТ", "СР", "ЧТ", "ПТ", "СБ"]
+	 
+		function getWeekDay(date) {
+			return week[date.getDay()];
+		}
+		
+	alert( getWeekDay(date) );   // нужно вывести "ВТ"
+	
+</script>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+  <table id="table">
+    <tr>
+      <th>Имя</th>
+      <th>Фамилия</th>
+      <th>Возраст</th>
+    </tr>
+    <tr>
+      <td>John</td>
+      <td>Smith</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <td>Pete</td>
+      <td>Brown</td>
+      <td>15</td>
+    </tr>
+    <tr>
+      <td>Ann</td>
+      <td>Lee</td>
+      <td>5</td>
+    </tr>
+  </table>
+
+  <script>
+    let table = document.getElementById('table');
+	let trs = table.querySelectorAll('tr');
+    let obj = [];
+    for (let tr of trs) {
+       obj.push(tr.textContent);
+    }
+	
+	for (let elem of obj) {
+		let elem2 = elem.split('/n');
+		alert(elem2[0]);
+	}
+	
+	
+	//obj.sort(function(a, b) {
+   /// return a[0] - b[0];
+  // });
+	
+	//alert(obj[0][0]);
+  </script>
+
+</body>
+</html>

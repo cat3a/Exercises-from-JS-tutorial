@@ -1,0 +1,14 @@
+<script>
+
+	"use strict";
+	
+	function getSecondsToday() {
+		let dayToday =  new Date();
+		let day = new Date();
+		day.setHours(0, 0, 0);
+		return alert(Math.round((dayToday - day)/1000));
+	}
+	
+	getSecondsToday();
+	
+</script>

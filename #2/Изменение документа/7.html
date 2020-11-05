@@ -1,0 +1,98 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <style>
+    table {
+      border-collapse: collapse;
+    }
+
+    td,
+    th {
+      border: 1px solid black;
+      padding: 3px;
+      text-align: center;
+    }
+
+    th {
+      font-weight: bold;
+      background-color: #E6E6E6;
+    }
+  </style>
+</head>
+
+<body>
+
+
+  <div id="calendar"></div>
+
+  <script>
+    function createCalendar(elem, year, month) {
+	  let arrDays = ['пн', 'вт', 'ср', 'чт', 'пт', 'сб', 'вс'];
+      let date = new Date(year, month);
+      let endDate =  new Date(year, month+1, 0);
+      let parenter = document.getElementById('calendar');
+      let table = document.createElement('table');
+	  let end = endDate.getDate();
+	  let end2 = endDate.getDate();
+	  let day = new Date(year, month, 1).getDay();
+	  let dayRight = day;
+	  if(day == 0){dayRight = 7};
+	  let number = 1;
+      parenter.append(table);
+	  
+	  for (let i = 0; i <= 6; i++){
+		let th = document.createElement('th');
+		th.textContent = arrDays[i];
+		table.append(th);
+	  }
+
+	  let count = 0;
+	  for (let j = 0; j < end+dayRight; j++ ) {
+		if (j % 7 == 0 || j == 0) {
+			tr = document.createElement('tr');
+			tr.className = count ++;
+			table.append(tr);}
+			let td = document.createElement('td');
+		    table.lastChild.append(td);
+	    }
+	
+	    while((end+day) % 7 !== 0) {
+		let td = document.createElement('td');
+	    table.lastChild.append(td);
+	    end++;
+		} 
+		
+		if((end2 + dayRight-1) % 7 == 0) {
+		let tdDel = table.lastChild.getElementsByTagName('td');
+		table.lastChild.remove();
+		for(let td of tdDel){
+			td.remove();
+		}
+		}
+
+	  
+	  if (day >= 1 ) {
+	  tdText = document.getElementsByTagName('td');
+	  for (let tText = day-1; tText < end2+day-1; tText++){
+		tdText[tText].textContent = number;
+		number ++;
+	  } 
+	 }
+	 
+	  if (day == 0 ) {
+	  tdText = document.getElementsByTagName('td');
+	  for (let tText = 6; tText < end2+6; tText++){
+		tdText[tText].textContent = number;
+		number ++;
+	  } 
+	 }
+	  
+	}
+	
+    createCalendar(calendar, 2021, 1);
+	
+  </script>
+
+</body>
+</html>

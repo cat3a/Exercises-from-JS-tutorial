@@ -1,0 +1,24 @@
+<h1 class="userList"></h1>
+
+<script>
+
+	function createUserList() {
+		alert("Сейчас мы создадим список.")
+		let uList = document.querySelector('.userList');
+		uList.textContent = prompt("Введите название вашего списка");
+		alert("Теперь введите пункты списка.")
+		let ul = document.createElement("ul");
+		document.body.append(ul);
+		let userInput = "User input";
+		while(userInput != null && userInput != "") {
+			userInput = prompt("Введите пункт списка", "");
+			let userLi = document.createElement("li");
+			userLi.textContent = userInput;
+			ul.append(userLi);
+		}
+		ul.lastChild.remove();
+	}
+
+	createUserList();
+	
+</script>

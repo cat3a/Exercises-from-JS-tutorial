@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+  <table id="table">
+    <tr>
+      <th>Имя</th>
+      <th>Фамилия</th>
+      <th>Возраст</th>
+    </tr>
+    <tr>
+      <td>John</td>
+      <td>Smith</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <td>Pete</td>
+      <td>Brown</td>
+      <td>15</td>
+    </tr>
+    <tr>
+      <td>Ann</td>
+      <td>Lee</td>
+      <td>5</td>
+    </tr>
+  </table>
+
+  <script>
+    let table = document.getElementById('table');
+	let tds = table.querySelectorAll('td');
+    let obj = [];
+    for (let td of tds) {
+       obj.push(td.textContent);
+    }
+	
+	let name = [];
+	for (let i = 0; i <= obj.length; i++ ) {
+		name.push(obj[i]);
+        i+=2;
+	}
+	
+	name.sort();
+	
+  </script>
+
+</body>
+</html>

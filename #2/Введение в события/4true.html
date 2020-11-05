@@ -1,0 +1,71 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <style>
+    #field {
+      width: 200px;
+      height: 150px;
+      border: 10px solid black;
+      background-color: #00FF00;
+      overflow: hidden;
+    }
+    
+    .animation {
+      transition-timing-function: linear;
+      transition-duration: 1s;
+      transform: rotate(180deg) infinite;
+    }
+
+  </style>
+</head>
+
+<body style="height:2000px">
+
+  Нажмите на поле для перемещения мяча.
+  <br> Мяч не должен выходить за границы поля.
+
+
+  <div id="field">
+    <img src="https://ru.js.cx/clipart/ball.svg" id="ball"> . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+  </div>
+
+  <script>
+    let div = document.getElementById('field');
+    let img = document.getElementById('ball');
+    let arrCoord;
+
+   field.onclick = function field(event) {
+      let fieldX = event.clientX;
+      let fieldY = event.clientY;
+      let borderX = (div.offsetWidth - div.clientWidth)/2;
+      let borderY = (div.offsetHeight - div.clientHeight)/2;
+
+       img.className = 'animation';
+       img.style.position = "absolute";
+       img.style.left = event.clientX - img.getBoundingClientRect().width/2  +  'px';
+       img.style.top = event.clientY - img.getBoundingClientRect().height/2  + 
+        'px';
+    //  }
+      if (event.clientX + img.getBoundingClientRect().width/2  +  borderX >= div.getBoundingClientRect().width + div.getBoundingClientRect().x) {
+        img.style.left = div.getBoundingClientRect().width + div.getBoundingClientRect().x - img.getBoundingClientRect().width - borderX  + 'px';
+
+     }
+     if(event.clientY + img.getBoundingClientRect().height/2 + borderY >= div.getBoundingClientRect().height + div.getBoundingClientRect().y) {;
+        img.style.top = div.getBoundingClientRect().height + div.getBoundingClientRect().y - img.getBoundingClientRect().height - borderY  + 'px';
+     }
+
+     if(div.getBoundingClientRect().x >=  event.clientX - img.getBoundingClientRect().width/2 - borderX) {
+        img.style.left = div.getBoundingClientRect().x + borderX + 'px';
+     }
+
+     if(div.getBoundingClientRect().y >=  event.clientY - img.getBoundingClientRect().height/2 - borderY) {
+        img.style.top = div.getBoundingClientRect().y + borderY + 'px';
+     }
+    }
+  </script>
+
+</body>
+</html>

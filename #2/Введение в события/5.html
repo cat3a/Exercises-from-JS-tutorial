@@ -1,0 +1,62 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+
+  .visible {
+    display: inline;
+  }
+  .unvisible {
+    display: none;
+  }
+
+  .rollUp, .expand {
+    color: green;
+  }
+
+  .list {
+    list-style: none;
+  }
+
+  .menu {
+    line-height: 50%;
+  }
+
+  .list li {
+    margin-left: -20px;
+    font-size: 95%;
+  }
+
+  .list li:first-child {
+    margin-top: -10px;
+  }
+
+  </style>
+</head>
+<body>
+
+  <div class="menu"><span class="rollUp visible">▶</span><span class="expand unvisible">▼</span> Сладости (нажми меня)!</div>
+  <ul class="list unvisible">
+    <li>Пирожное</li>
+    <li>Пончик</li>
+    <li>Мёд</li>
+  </ul>
+
+<script>
+let rollUp = document.querySelector('.rollUp');
+let expand = document.querySelector('.expand');
+let menu = document.querySelector('.menu');
+let list = document.querySelector('.list');
+
+menu.onclick = function() {
+  rollUp.classList.toggle('unvisible');
+  expand.classList.toggle('unvisible');
+  list.classList.toggle('unvisible');
+}
+
+
+</script>
+
+</body>
+</html>

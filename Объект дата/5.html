@@ -1,0 +1,18 @@
+<script>
+
+	"use strict";
+	
+	function getLastDayOfMonth(year, month) {
+		let i = 0;
+		let data = new Date(year, month);
+		let value = new Date(year, month, 1);
+		while (value.getMonth() == data.getMonth()) {
+			value.setDate(value.getDate() + 1);
+			i++;
+		}
+		return alert(i);
+	}
+	
+	getLastDayOfMonth(2012, 1);
+	
+</script>

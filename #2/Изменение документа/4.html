@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+</head>
+
+<body>
+
+  <div id="tree"></div>
+
+  <!-- Результат должен быть:
+<div id="tree">
+<ul>
+  <li>Рыбы
+    <ul>
+      <li>форель</li>
+      <li>лосось</li>
+    </ul>
+  </li>
+  <li>Деревья
+    <ul>
+      <li>Огромные
+        <ul>
+          <li>секвойя</li>
+          <li>дуб</li>
+        </ul>
+      </li>
+      <li>Цветковые
+        <ul>
+          <li>яблоня</li>
+          <li>магнолия</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+</div>
+-->
+
+  <script>
+    let data = {
+      "Рыбы": {
+        "форель": {},
+        "лосось": {}
+      },
+
+      "Деревья": {
+        "Огромные": {
+          "секвойя": {},
+          "дуб": {}
+        },
+        "Цветковые": {
+          "яблоня": {},
+          "магнолия": {}
+        }
+      }
+    };
+	
+    function createTree(container, data) {
+		container.append(createTreeDom(data));
+    }
+	
+	function createTreeDom(data) {
+		
+		let ul = document.createElement('ul');
+		
+		if (!Object.keys(data).length) return;
+		
+		for(let key in data) {
+		
+			let li = document.createElement('li');
+			li.textContent = key;
+			
+			let childrenUl = createTreeDom(data[key]);
+			if (childrenUl) {
+				li.append(childrenUl);
+			}
+	        ul.append(li);
+		}
+		return ul;
+	}
+	
+	let container = document.getElementById('container');
+    createTree(document.getElementById('tree'), data);
+	
+  </script>
+
+</body>
+</html>
