@@ -1,0 +1,18 @@
+<script>
+
+	"use strict";
+	
+	let index;
+	
+	function filterRangeInPlace(arr, a, b) {
+	    while(arr.findIndex(item => a > item || item > b) != -1) {
+			index = arr.findIndex(item => a > item || item > b);
+			arr.splice(index, 1);
+		}
+	}
+	
+	let arr = [5, 3, 8, 1, 8, 6, 2, 3];
+	filterRangeInPlace(arr, 1, 4); // удалены числа вне диапазона 1..4
+	alert( arr ); 
+	
+</script>

@@ -1,0 +1,43 @@
+<script>
+
+	"use strict";
+
+	function Calculator() {
+
+		this.operations = {
+			"-": (a, b) => a - b,
+			"+": (a, b) => a + b
+		};
+	
+		this.calculate = function(str) {
+		
+			let input = str.split(" "),
+				a = +input[0],
+				oper = input[1],
+				b = +input[2];
+		
+		    if(!this.operations[oper] || isNaN(a) || isNaN(b)) {
+				return alert("Что-то пошло не так!");
+			} 
+			
+			return this.operations[oper](a, b);
+        }
+		
+		this.addMethod = function(nameOperation, func) {
+			this.operations[nameOperation] = func;
+		}
+	}
+	
+	let powerCalc = new Calculator;
+	
+	powerCalc.addMethod("*", (a, b) => a * b);
+	powerCalc.addMethod("/", (a, b) => a / b);
+	powerCalc.addMethod("**", (a, b) => a ** b);
+
+	let result = powerCalc.calculate("2 ** 3");
+	let result2 = powerCalc.calculate("2 + 3");
+	
+	alert( result ); // 8
+	alert( result2 ); // 5
+	
+</script>

@@ -1,0 +1,25 @@
+<script>
+
+	"use strict";
+	
+	function camelize(str) {
+	
+		let arr = str.split("-");
+		let arr2 =[]
+		
+		for (let elem of arr) {
+		    let ele = elem;
+		    ele = ele.slice(0, 1).toUpperCase() + ele.slice(1);	
+			arr2.unshift(ele);
+			}
+		
+		let str2 = arr2.join("");
+		
+		return alert(str2);
+		}
+	
+	camelize("background-color");
+	camelize("list-style-image");
+	camelize("-webkit-transition");
+	
+</script>
