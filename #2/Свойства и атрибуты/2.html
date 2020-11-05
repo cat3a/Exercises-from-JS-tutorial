@@ -1,0 +1,23 @@
+<a name="list">the list</a> 
+<ul>
+  <li><a href="http://google.com">http://google.com</a></li>
+  <li><a href="/tutorial">/tutorial.html</a></li>
+  <li><a href="local/path">local/path</a></li>
+  <li><a href="ftp://ftp.com/my.zip">ftp://ftp.com/my.zip</a></li>
+  <li><a href="http://nodejs.org">http://nodejs.org</a></li>
+  <li><a href="http://internal.com/test">http://internal.com/test</a></li>
+</ul>
+
+<script>
+  let links = document.getElementsByTagName('a');
+  for(let link of links) {
+	if(link.getAttribute('href') === null){
+		link.setAttribute('href', " ");
+	}
+	let linkAttr = link.getAttribute('href');
+	if ((linkAttr.indexOf('://') != -1) && (linkAttr.indexOf('http://internal.com') == -1) &&) {
+		link.style.color = 'orange'; 
+		alert(linkAttr);
+	}
+  }
+</script>
